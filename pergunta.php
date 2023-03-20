@@ -31,13 +31,17 @@
         }
         if($msg == "proximo"){
             $posicao = $posicao + 1;
-            if ($todosOsQuiz->num_rows > 1) {
+            mysqli_data_seek($todosOsQuiz, $posicao);
+            $todosOsQuiz = mysqli_fetch_assoc($todosOsQuiz);
+
+            
+           /* if ($todosOsQuiz->num_rows > 1) {
                 // Pula o primeiro registro, que já foi retornado
                 mysqli_data_seek($todosOsQuiz, $posicao);
               
                 // Obtém o próximo registro
                 $todosOsQuiz = mysqli_fetch_assoc($todosOsQuiz);
-              }
+              }*/
           $umQuiz = $todosOsQuiz;
             }
           

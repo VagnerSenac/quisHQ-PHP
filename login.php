@@ -29,7 +29,7 @@
                 <div class="col  text-center mt-3">
                     <button type="submit" class="btn btn-primary">Entrar</button>
                     <button type="reset" class="btn btn-secondary">Limpar</button>
-                    <a class="btn btn-warning" href="user-novo.php" role="button">Novo Usuário</a>
+                    <!-- <a class="btn btn-warning" href="user-novo.php" role="button">Novo Usuário</a> -->
                     
                 </div>
             </div>

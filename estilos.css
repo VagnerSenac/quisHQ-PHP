@@ -41,6 +41,13 @@ main{
     justify-content: space-around;
     
 }
+.corpofim{
+    text-align: center;
+    height: 90%;
+    display: flex;
+
+    
+}
 .rodapePrincipal{
     width: 100%;
     background-color: #00AB93;
@@ -76,6 +83,7 @@ main{
     width: 280px;
     height: 87px;
  }
+ 
  .botao{
     border-bottom: 1px solid #000000;
     font-family: 'Inter', sans-serif;
@@ -121,3 +129,8 @@ main{
     
     
 }
+ .textoFimEspaco{
+  
+    height: 30px;
+ }
+

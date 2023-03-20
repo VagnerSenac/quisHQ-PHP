@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Mar-2023 às 23:08
+-- Tempo de geração: 20-Mar-2023 às 19:47
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -34,17 +34,21 @@ CREATE TABLE `t_quiz` (
   `alternativa2` varchar(2000) NOT NULL,
   `alternativa3` varchar(2000) NOT NULL,
   `alternativa4` varchar(2000) NOT NULL,
-  `imagem` varchar(100) NOT NULL
+  `imagem` varchar(100) NOT NULL,
+  `resp1` varchar(20) NOT NULL,
+  `resp2` varchar(20) NOT NULL,
+  `resp3` varchar(20) NOT NULL,
+  `resp4` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `t_quiz`
 --
 
-INSERT INTO `t_quiz` (`id`, `pergunta`, `alternativa1`, `alternativa2`, `alternativa3`, `alternativa4`, `imagem`) VALUES
-(1, 'Como você sente sua pele?', 'Muito Oleosa, de longe se ve brilho', 'Sinto que a testa e nariz são oleosos, já a bochecha é seca, chega a descascar', 'Não sinto minha pele nem seca e nem oleosa', 'Muito seca, chega a descascar', 'imagens/fundo2.jpg'),
-(2, 'Como ?', 'Muito Oleosa, de longe se ve brilho', 'Sinto que a testa e nariz são oleosos, já a bochecha é seca, chega a descascar', 'Não sinto minha pele nem seca e nem oleosa', 'Muito seca, chega a descascar', 'imagens/fundo5.jpg'),
-(3, 'Você costuma ter espinhas e cravos:', 'Sempre', 'De vez em quando', 'Raramente', 'Nunca', 'imagens/fundo6.jpg');
+INSERT INTO `t_quiz` (`id`, `pergunta`, `alternativa1`, `alternativa2`, `alternativa3`, `alternativa4`, `imagem`, `resp1`, `resp2`, `resp3`, `resp4`) VALUES
+(4, 'Qual vc prefere mais?', 'Superman', 'Thor', 'Mulher Maravilha', 'Batman', 'imagens/fundo3.jpg', 'dc', 'marvel', 'dc', 'dc'),
+(5, 'Quem venceria essa luta?', 'Iron Man', 'Lanterna Verde', 'Homem Formiga', 'Homen Aranha', 'imagens/fundo5.jpg', 'marvel', 'dc', 'marvel', 'marvel'),
+(6, 'Quem é o pior personagem para vc?', 'Batman', 'Thor', 'Superman', 'Iron Man', 'imagens/fundo2.jpg', 'dc', 'marvel', 'dc', 'marvel');
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT de tabela `t_quiz`
 --
 ALTER TABLE `t_quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `t_user`
