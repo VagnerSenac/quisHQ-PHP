@@ -1,4 +1,6 @@
-<?php include_once "mensagens.php"; ?>
+<?php 
+session_start();
+include_once "mensagens.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,6 +16,51 @@
 <body>
     <main>
     <?php
+ include "conexao.php";
+
+if(!isset($_SESSION['listaIds'])){
+    $sqlBusca = "select * from t_quiz";
+    $todosOsQuiz = mysqli_query($conexao, $sqlBusca);
+
+    $_SESSION['listaIds'] = array();
+
+    while($questoes = mysqli_fetch_assoc($todosOsQuiz)){
+        array_push($_SESSION['listaIds'], $questoes['id']);
+    }
+}
+
+//print_r( $_SESSION['listaIds']);
+//echo "<br>";
+$posicao = 0;
+$sqlBusca = "select * from t_quiz where id = ". $_SESSION['listaIds'][$posicao];
+
+if(count($_SESSION['listaIds']) > 1){
+    array_shift($_SESSION['listaIds']);
+    $endereco = "respQuiz.php";
+}else{
+    session_destroy();
+    $endereco = "fimA.php";
+}
+
+
+
+
+//print_r( $sqlBusca);
+
+//$sqlBusca = count( $_SESSION['listaIds']);
+$todosOsQuiz = mysqli_query($conexao, $sqlBusca);
+$todosOsQuiz = mysqli_fetch_assoc($todosOsQuiz);
+$umQuiz = $todosOsQuiz;
+
+$total = "SELECT COUNT(*) as total FROM t_quiz";
+$resultado = mysqli_query($conexao, $total);
+$row = mysqli_fetch_assoc($resultado);
+$total = $row['total'];
+//exit();
+
+/*
+
+
         include "conexao.php";
         $sqlBusca = "select * from t_quiz";
         $todosOsQuiz = mysqli_query($conexao, $sqlBusca);
@@ -41,17 +88,17 @@
               
                 // Obtém o próximo registro
                 $todosOsQuiz = mysqli_fetch_assoc($todosOsQuiz);
-              }*/
+              }
           $umQuiz = $todosOsQuiz;
             }
           
-
+*/
             ?>
         <header class="titulo">
             <h1 class="quisp">Quis do Poder</h1>
             <h2 class="numero"> <?php echo $posicao; ?>/<?php echo $total; ?></h2>
         </header>
-        <form action="respQuiz.php" method="POST">
+        <form action="<?php echo $endereco; ?>" method="POST">
         <div class="corpo">
             <br>
             <p class="pergunta"><?php echo $umQuiz['pergunta']; ?></p>

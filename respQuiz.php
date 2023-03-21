@@ -15,8 +15,10 @@ $foto = $_POST['fundo'];
 $sqlGravar = "insert into t_quiz(pergunta, alternativa1, alternativa2, alternativa3, alternativa4, imagem, resp1, resp2, resp3, resp4) values('$pergunta', '$alternativa1', '$alternativa2', '$alternativa3', '$alternativa4', '$foto', '$resp1', '$resp2', '$resp3', '$resp4')";
 mysqli_query($conexao, $sqlGravar);
 mysqli_close($conexao);
-*/
-header("location: pergunta.php?msg=proximo");
+
+session_start();
+echo "valor:" .$_SESSION['posicao'];*/
+header("location: pergunta.php");
 
 
 
