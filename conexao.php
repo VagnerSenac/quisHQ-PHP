@@ -1,6 +1,6 @@
 <?php 
 $servidor = '127.0.0.1';
-$banco = 'quis';
+$banco = 'bd_quiz';
 $usuariobd = 'root';
 $senhabd = '';
 

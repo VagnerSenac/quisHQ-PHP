@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Mar-2023 às 19:47
+-- Tempo de geração: 22-Mar-2023 às 02:33
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -53,6 +53,27 @@ INSERT INTO `t_quiz` (`id`, `pergunta`, `alternativa1`, `alternativa2`, `alterna
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `t_resposta`
+--
+
+CREATE TABLE `t_resposta` (
+  `id` int(11) NOT NULL,
+  `resposta` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `t_resposta`
+--
+
+INSERT INTO `t_resposta` (`id`, `resposta`) VALUES
+(16, 'dc'),
+(17, 'marvel'),
+(18, 'dc'),
+(19, 'dc');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `t_user`
 --
 
@@ -81,6 +102,12 @@ ALTER TABLE `t_quiz`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `t_resposta`
+--
+ALTER TABLE `t_resposta`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `t_user`
 --
 ALTER TABLE `t_user`
@@ -95,6 +122,12 @@ ALTER TABLE `t_user`
 --
 ALTER TABLE `t_quiz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `t_resposta`
+--
+ALTER TABLE `t_resposta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `t_user`
